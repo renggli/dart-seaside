@@ -1,4 +1,4 @@
-library seaside.bin.counter;
+library seaside.bin.multi_counter;
 
 import 'package:seaside/seaside.dart';
 

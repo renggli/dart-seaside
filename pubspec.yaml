@@ -7,3 +7,4 @@ environment:
 dependencies:
   shelf: ^0.7.0
   more: ^2.6.0
+  meta: ^1.2.0

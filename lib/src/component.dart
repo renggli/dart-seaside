@@ -1,5 +1,7 @@
 library seaside.component;
 
+import 'package:meta/meta.dart';
+
 import 'continuation.dart';
 import 'has_state.dart';
 
@@ -9,6 +11,7 @@ abstract class Component {
   Iterable<Component> get children => [];
 
   /// Iterable over this component and its deep children.
+  @nonVirtual
   Iterable<Component> get withAllChildren =>
       [this].followedBy(children.expand((each) => each.withAllChildren));
 

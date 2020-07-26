@@ -25,11 +25,11 @@ class Session {
     final headContents =
         component.withAllChildren.map((component) => component.head).join();
     final bodyContents = component.body(continuation);
-    return Response.ok('''
-        <html>
-          <head>$headContents</head>
-          <body>$bodyContents</body>
-        </html>
-    ''', headers: {'Content-Type': 'text/html'});
+    return Response.ok(
+        '<html>'
+        '<head>$headContents</head>'
+        '<body>$bodyContents</body>'
+        '</html>',
+        headers: {'Content-Type': 'text/html'});
   }
 }
