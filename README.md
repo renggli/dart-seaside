@@ -7,4 +7,8 @@ pub update
 pub run bin/server.dart 
 ```
 
-Then navigate your web-browser to [http://localhost:8080]().
+In your browser try out the example applications at:
+
+- [http://localhost:8080/counter]()
+- [http://localhost:8080/multi-counter]()
+- [http://localhost:8080/tabbed-counter]()

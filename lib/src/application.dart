@@ -1,5 +1,6 @@
 library seaside.application;
 
+import 'package:seaside/src/limiting_map.dart';
 import 'package:shelf/shelf.dart';
 
 import 'component.dart';
@@ -11,7 +12,7 @@ typedef ComponentFactory = Component Function(Request initialRequest);
 
 /// The starting point of a Seaside application.
 class Application {
-  final Map<String, Session> _sessions = {};
+  final Map<String, Session> _sessions = LimitingMap({}, 50);
   final ComponentFactory _componentFactory;
 
   Application(this._componentFactory);

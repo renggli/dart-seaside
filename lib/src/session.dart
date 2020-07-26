@@ -5,11 +5,12 @@ import 'package:shelf/shelf.dart';
 import 'component.dart';
 import 'continuation.dart';
 import 'keys.dart';
+import 'limiting_map.dart';
 
 /// User session persistent as long as the user is interacting with it.
 class Session {
   final String sessionKey;
-  final Map<String, Continuation> _continuations = {};
+  final Map<String, Continuation> _continuations = LimitingMap({}, 25);
   final Component component;
 
   Session(this.sessionKey, this.component);
