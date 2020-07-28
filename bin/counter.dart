@@ -2,7 +2,7 @@ library seaside.bin.counter;
 
 import 'package:seaside/seaside.dart';
 
-// The most simple Seaside application.
+/// The most simple Seaside application.
 class Counter extends Component implements HasState<int> {
   int counter = 0;
 

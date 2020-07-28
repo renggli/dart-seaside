@@ -1,10 +1,10 @@
 library seaside.application;
 
-import 'package:seaside/src/limiting_map.dart';
 import 'package:shelf/shelf.dart';
 
 import 'component.dart';
 import 'keys.dart';
+import 'limiting_map.dart';
 import 'session.dart';
 
 /// Constructs the root component from the initial request.
