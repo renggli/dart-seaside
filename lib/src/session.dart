@@ -17,9 +17,12 @@ class Session {
 
   /// Handles the creation and resolution of continuations, including the
   /// rendering of the response using the root component.
-  Response call(Request request) {
-    _continuations[request.requestedUri.queryParameters[continuationParam]]
-        ?.call(request);
+  Future<Response> call(Request request) async {
+    final previousKey = request.requestedUri.queryParameters[continuationParam];
+    if (_continuations.containsKey(previousKey)) {
+      await _continuations[previousKey](request);
+    }
+
     final continuationKey = createContinuationKey();
     final continuation = Continuation(sessionKey, continuationKey, component);
     _continuations[continuationKey] = continuation;

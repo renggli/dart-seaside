@@ -18,7 +18,7 @@ class Application {
   Application(this._componentFactory);
 
   /// Handles the creation and dispatching to sessions.
-  Response call(Request request) {
+  Future<Response> call(Request request) {
     var sessionKey = request.requestedUri.queryParameters[sessionParam];
     if (!_sessions.containsKey(sessionKey)) {
       _sessions[sessionKey = createSessionKey()] =

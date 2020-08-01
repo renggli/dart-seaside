@@ -7,6 +7,7 @@ import 'package:shelf_router/shelf_router.dart';
 import 'calculator_cc.dart';
 import 'calculator_cps.dart';
 import 'counter.dart';
+import 'hello_world.dart';
 import 'multi_counter.dart';
 import 'tabbed_counters.dart';
 
@@ -16,6 +17,7 @@ Future<void> main(List<String> args) async {
   router.all('/calculator-cc', Application((request) => CalculatorCc()));
   router.all('/calculator-cps', Application((request) => CalculatorCps()));
   router.all('/counter', Application((request) => Counter()));
+  router.all('/hello-world', Application((request) => HelloWorld()));
   router.all('/multi-counter', Application((request) => MultiCounter()));
   router.all('/tabbed-counter', Application((request) => TabbedCounter()));
 

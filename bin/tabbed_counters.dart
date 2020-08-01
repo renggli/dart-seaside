@@ -27,8 +27,9 @@ class TabbedCounter extends Component implements HasState<int> {
       if (tabIndex == i) {
         buffer.write('<li>Counter $i</li>');
       } else {
-        buffer.write('<li><a href="${continuation.action(() => tabIndex = i)}">'
-            'Counter $i</a></li>');
+        buffer.write('<li>'
+            '<a href="${continuation.actionUrl(() => tabIndex = i)}">Counter $i</a>'
+            '</li>');
       }
     }
     buffer.write('</ul>');

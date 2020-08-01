@@ -39,7 +39,7 @@ abstract class Task extends Component {
   @nonVirtual
   String body(Continuation continuation) => isRunning
       ? _delegate.value.body(continuation)
-      : '<script>document.location.href="${continuation.action(run)}";</script>';
+      : '<script>document.location.href="${continuation.actionUrl(run)}";</script>';
 
   /// Defines the workflow as a sequence of calls.
   void run();
