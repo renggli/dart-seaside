@@ -9,6 +9,7 @@ import 'calculator_cps.dart';
 import 'counter.dart';
 import 'hello_world.dart';
 import 'multi_counter.dart';
+import 'number_guessing.dart';
 import 'tabbed_counters.dart';
 
 /// Web-server for the example applications.
@@ -19,6 +20,7 @@ Future<void> main(List<String> args) async {
   router.all('/counter', Application((request) => Counter()));
   router.all('/hello-world', Application((request) => HelloWorld()));
   router.all('/multi-counter', Application((request) => MultiCounter()));
+  router.all('/number-guessing', Application((request) => NumberGuessing()));
   router.all('/tabbed-counter', Application((request) => TabbedCounter()));
 
   final server = await serve(router.handler, 'localhost', 8080);
