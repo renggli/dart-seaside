@@ -4,7 +4,7 @@ import 'dart:math';
 
 import 'package:seaside/seaside.dart';
 
-/// Computes the sum of two numbers using async/await (no backtracking).
+/// Two simple number guessing games taking control flow to the extreme.
 class NumberGuessing extends Task {
   @override
   Future<void> run() async {
