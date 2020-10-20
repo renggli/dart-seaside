@@ -28,17 +28,17 @@ abstract class Task extends Component {
   bool get isRunning => _delegate.value != null;
 
   @override
+  @nonVirtual
+  Component get delegate => _delegate.value;
+
+  @override
   @mustCallSuper
   Iterable<HasState> get states => [_delegate];
 
   @override
   @nonVirtual
-  Iterable<Component> get children => isRunning ? [_delegate.value] : [];
-
-  @override
-  @nonVirtual
   String body(Continuation continuation) => isRunning
-      ? _delegate.value.body(continuation)
+      ? delegate.body(continuation)
       : '<script>document.location.href="${continuation.actionUrl(run)}";</script>';
 
   /// Defines the workflow as a sequence of calls.

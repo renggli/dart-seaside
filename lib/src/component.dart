@@ -10,10 +10,14 @@ abstract class Component {
   /// Iterable of direct child components.
   Iterable<Component> get children => [];
 
+  /// Delegate component, or `null` otherwise.
+  Component get delegate => null;
+
   /// Iterable over this component and its deep children.
   @nonVirtual
-  Iterable<Component> get withAllChildren =>
-      [this].followedBy(children.expand((each) => each.withAllChildren));
+  Iterable<Component> get withAllChildren => delegate != null
+      ? delegate.withAllChildren
+      : [this].followedBy(children.expand((each) => each.withAllChildren));
 
   /// Iterable of objects that need backtracking.
   Iterable<HasState> get states => [];
