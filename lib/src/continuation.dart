@@ -33,7 +33,7 @@ class Continuation {
     final params = await extractParams(request);
     callbacks.keys
         .where(params.containsKey)
-        .forEach((key) => callbacks[key](params[key]));
+        .forEach((key) => callbacks[key]!(params[key]!));
   }
 
   /// Registers a [callback] and returns the corresponding key.
@@ -44,7 +44,7 @@ class Continuation {
   }
 
   /// Registers a [callback] and returns the corresponding URL.
-  Uri actionUrl([ActionCallback callback]) => Uri(queryParameters: {
+  Uri actionUrl([ActionCallback? callback]) => Uri(queryParameters: {
         sessionParam: sessionKey,
         continuationParam: continuationKey,
         if (callback != null) callbackKey((value) => callback()): '',

@@ -2,11 +2,10 @@ name: seaside
 description: A web server built using the shelf package.
 
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
   collection: ^1.14.0
   meta: ^1.2.0
-  more: ^2.8.0
-  shelf: ^0.7.0
-  shelf_router: ^0.7.0
+  more: ^3.0.0
+  shelf: ^1.0.0

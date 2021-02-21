@@ -20,7 +20,7 @@ class Session {
   Future<Response> call(Request request) async {
     final previousKey = request.requestedUri.queryParameters[continuationParam];
     if (_continuations.containsKey(previousKey)) {
-      await _continuations[previousKey](request);
+      await _continuations[previousKey]!(request);
     }
 
     final continuationKey = createContinuationKey();

@@ -6,7 +6,7 @@ import 'has_state.dart';
 class ValueHolder<T> implements HasState<T> {
   T value;
 
-  ValueHolder([this.value]);
+  ValueHolder(this.value);
 
   @override
   void restore(T snapshot) => value = snapshot;

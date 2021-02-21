@@ -15,7 +15,7 @@ typedef AnswerHandler<T> = void Function(T value);
 /// A component with an answer handler.
 mixin CanAnswer<T> implements Component {
   /// Currently registered answer handler.
-  AnswerHandler<T> onAnswer;
+  AnswerHandler<T>? onAnswer;
 
   /// Answers the provided [value].
   void answer(T value) => onAnswer?.call(value);
@@ -23,13 +23,13 @@ mixin CanAnswer<T> implements Component {
 
 /// A task defines a sequence of components being shown.
 abstract class Task extends Component {
-  final ValueHolder<CanAnswer> _delegate = ValueHolder<CanAnswer>();
+  final ValueHolder<CanAnswer?> _delegate = ValueHolder(null);
 
   bool get isRunning => _delegate.value != null;
 
   @override
   @nonVirtual
-  Component get delegate => _delegate.value;
+  Component? get delegate => _delegate.value;
 
   @override
   @mustCallSuper
@@ -38,7 +38,7 @@ abstract class Task extends Component {
   @override
   @nonVirtual
   String body(Continuation continuation) => isRunning
-      ? delegate.body(continuation)
+      ? delegate!.body(continuation)
       : '<script>document.location.href="${continuation.actionUrl(run)}";</script>';
 
   /// Defines the workflow as a sequence of calls.
@@ -46,7 +46,7 @@ abstract class Task extends Component {
 
   /// Shows the provided [component], evaluates the [onAnswer] callback with
   /// the answer of the component.
-  void show<T>(CanAnswer<T> component, {AnswerHandler<T> onAnswer}) {
+  void show<T>(CanAnswer<T> component, {AnswerHandler<T>? onAnswer}) {
     _delegate.value = component;
     component.onAnswer = (value) {
       _delegate.value = null;

@@ -24,6 +24,6 @@ class Application {
       _sessions[sessionKey = createSessionKey()] =
           Session(sessionKey, _componentFactory(request));
     }
-    return _sessions[sessionKey](request);
+    return _sessions[sessionKey]!(request);
   }
 }
