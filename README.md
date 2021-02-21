@@ -13,14 +13,6 @@ pub update
 pub run bin/server.dart 
 ```
 
-In your browser navigate to the example applications at:
-
-- [http://localhost:8080/calculator-cc]()
-- [http://localhost:8080/calculator-cps]()
-- [http://localhost:8080/counter]()
-- [http://localhost:8080/hello-world]()
-- [http://localhost:8080/multi-counter]()
-- [http://localhost:8080/number-guessing]()
-- [http://localhost:8080/tabbed-counter]()
+In your browser navigate to the list of examples at http://localhost:8080/.
 
 As always, this is under the [MIT License](https://raw.githubusercontent.com/renggli/dart-seaside/master/LICENSE).
