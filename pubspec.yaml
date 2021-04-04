@@ -9,5 +9,3 @@ dependencies:
   meta: ^1.2.0
   more: ^3.0.0
   shelf: ^1.0.0
-dev_dependencies: 
-  test: ^1.16.0
