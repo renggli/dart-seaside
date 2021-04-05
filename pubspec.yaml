@@ -1,11 +1,15 @@
 name: seaside
-description: A web server built using the shelf package.
+version: 0.0.1
+
+homepage: https://github.com/renggli/dart-seaside
+description: A web application server framework.
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
-
 dependencies:
   collection: ^1.14.0
   meta: ^1.2.0
   more: ^3.0.0
   shelf: ^1.0.0
+dev_dependencies:
+  test: ^1.16.0

@@ -29,3 +29,5 @@ jobs:
         run: dart analyze --fatal-infos .
       - name: "Dart Formatter"
         run: dart format --output=none --set-exit-if-changed .
+      - name: "VM Tests"
+        run: dart test --platform vm test/all_test.dart
