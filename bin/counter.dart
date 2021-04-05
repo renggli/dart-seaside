@@ -1,5 +1,3 @@
-library seaside.bin.counter;
-
 import 'package:seaside/seaside.dart';
 
 /// The most simple Seaside application.

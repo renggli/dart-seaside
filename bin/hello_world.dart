@@ -1,5 +1,3 @@
-library seaside.bin.hello_world;
-
 import 'package:seaside/seaside.dart';
 
 /// The standard hello world example.

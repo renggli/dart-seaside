@@ -1,5 +1,3 @@
-library seaside.bin.multi_counter;
-
 import 'package:seaside/seaside.dart';
 
 import 'counter.dart';

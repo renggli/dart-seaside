@@ -1,5 +1,3 @@
-library seaside.bin.number_guessing;
-
 import 'dart:math';
 
 import 'package:seaside/seaside.dart';

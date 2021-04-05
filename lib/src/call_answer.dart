@@ -1,5 +1,3 @@
-library seaside.call_answer;
-
 import 'dart:async';
 
 import 'package:meta/meta.dart';

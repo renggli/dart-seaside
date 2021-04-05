@@ -1,5 +1,3 @@
-library seaside.keys;
-
 import 'dart:math';
 
 final _generator = Random.secure();

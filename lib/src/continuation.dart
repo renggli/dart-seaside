@@ -1,5 +1,3 @@
-library seaside.continuation;
-
 import 'dart:convert';
 
 import 'package:shelf/shelf.dart';

@@ -1,5 +1,3 @@
-library seaside.value_holder;
-
 import 'has_state.dart';
 
 /// A holder of a backtrack-able value.

@@ -1,5 +1,3 @@
-library seaside.component;
-
 import 'package:meta/meta.dart';
 
 import 'continuation.dart';

@@ -1,5 +1,3 @@
-library seaside.bin.server;
-
 import 'package:seaside/seaside.dart';
 import 'package:shelf/shelf_io.dart';
 

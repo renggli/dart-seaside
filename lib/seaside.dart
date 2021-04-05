@@ -1,5 +1,3 @@
-library seaside;
-
 export 'src/application.dart';
 export 'src/call_answer.dart';
 export 'src/component.dart';

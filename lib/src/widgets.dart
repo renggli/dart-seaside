@@ -1,5 +1,3 @@
-library seaside.src.widgets;
-
 import 'call_answer.dart';
 import 'component.dart';
 import 'continuation.dart';

@@ -1,5 +1,3 @@
-library seaside.limiting_map;
-
 import 'package:collection/collection.dart';
 
 /// A map that limits its items to a specific number of keys.

@@ -1,5 +1,3 @@
-library seaside.bin.cps_calculator;
-
 import 'package:seaside/seaside.dart';
 
 const List<int> numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];

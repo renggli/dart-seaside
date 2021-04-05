@@ -1,5 +1,3 @@
-library seaside.bin.tabbed_counter;
-
 import 'package:seaside/seaside.dart';
 
 import 'counter.dart';

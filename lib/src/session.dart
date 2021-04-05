@@ -1,5 +1,3 @@
-library seaside.session;
-
 import 'package:shelf/shelf.dart';
 
 import 'component.dart';
