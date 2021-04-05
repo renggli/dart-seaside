@@ -1,11 +1,11 @@
 name: Dart CI
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
+  schedule:
+    - cron: "0 0 * * 0"
 defaults:
   run:
     shell: bash
