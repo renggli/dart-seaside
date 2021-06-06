@@ -53,8 +53,15 @@ class Continuation {
 Future<Map<String, String>> extractParams(Request request) async {
   final params = Map.of(request.requestedUri.queryParameters);
   if (request.method == 'POST') {
-    final content = await request.read().transform(const Utf8Decoder()).join();
-    params.addAll(Uri.splitQueryString(content));
+    final body = await request.readAsString();
+    if (request.mimeType == 'application/x-www-form-urlencoded') {
+      try {
+        params.addAll(Uri.splitQueryString(body));
+      } on FormatException {
+        params.addAll(Uri.splitQueryString(body, encoding: latin1));
+      }
+    }
+    // TODO: Handle other post mime-types.
   }
   return params;
 }
