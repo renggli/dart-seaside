@@ -11,12 +11,12 @@ This is the code accompanying the blog articles
 
 To try locally, [install Dart](https://dart.dev/) and execute the following commands:
 
-```
+```bash
 git clone https://github.com/renggli/dart-seaside.git
 cd dart-seaside
 
-pub update
-pub run bin/server.dart 
+dart pub update
+dart run bin/server.dart 
 ```
 
 In your browser navigate to the list of examples at http://localhost:8080/.
