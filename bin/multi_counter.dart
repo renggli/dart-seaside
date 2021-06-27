@@ -8,7 +8,7 @@ class MultiCounter extends Component {
   final List<Component> children = List.generate(5, (index) => Counter());
 
   @override
-  String get head => '<title>Multi-counter</title>';
+  String head(Continuation continuation) => '<title>Multi-counter</title>';
 
   @override
   String body(Continuation continuation) =>

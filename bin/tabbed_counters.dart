@@ -15,7 +15,7 @@ class TabbedCounter extends Component implements HasState<int> {
   List<Component> get children => [tabs[tabIndex]];
 
   @override
-  String get head => '<title>Tabbed-counter</title>';
+  String head(Continuation continuation) => '<title>Tabbed-counter</title>';
 
   @override
   String body(Continuation continuation) {

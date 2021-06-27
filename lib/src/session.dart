@@ -24,14 +24,16 @@ class Session {
     final continuationKey = createContinuationKey();
     final continuation = Continuation(sessionKey, continuationKey, component);
     _continuations[continuationKey] = continuation;
-    final headContents =
-        component.withAllChildren.map((component) => component.head).join();
+    final headContents = component.withAllChildren
+        .map((component) => component.head(continuation))
+        .join();
     final bodyContents = component.body(continuation);
-    return Response.ok(
-        '<html>'
-        '<head>$headContents</head>'
-        '<body>$bodyContents</body>'
-        '</html>',
-        headers: {'Content-Type': 'text/html'});
+    return Response.ok('''
+<!DOCTYPE html>
+<html>
+  <head>$headContents</head>
+  <body>$bodyContents</body>
+</html>
+''', headers: {'Content-Type': 'text/html'});
   }
 }

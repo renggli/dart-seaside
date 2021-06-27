@@ -21,7 +21,7 @@ abstract class Component {
   Iterable<HasState> get states => [];
 
   /// Returns the head contents.
-  String get head => '';
+  String head(Continuation continuation) => '';
 
   /// Returns the rendered contents, including its children.
   String body(Continuation continuation);
