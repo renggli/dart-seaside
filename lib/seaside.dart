@@ -4,5 +4,6 @@ export 'src/component.dart';
 export 'src/continuation.dart';
 export 'src/dispatcher.dart';
 export 'src/has_state.dart';
+export 'src/resumable_future.dart';
 export 'src/session.dart';
 export 'src/widgets.dart';

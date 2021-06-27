@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'component.dart';
 import 'continuation.dart';
 import 'has_state.dart';
+import 'resumable_future.dart';
 import 'value_holder.dart';
 
 /// Type of an answer handler.
@@ -55,7 +56,7 @@ abstract class Task extends Component {
   /// Shows the provided [component] asynchronously, resolves the resulting
   /// [Future] with the answer of the component.
   Future<T> call<T>(CanAnswer<T> component) {
-    final completer = Completer<T>.sync();
+    final completer = ResumableCompleter<T>();
     show<T>(component, onAnswer: completer.complete);
     return completer.future;
   }
