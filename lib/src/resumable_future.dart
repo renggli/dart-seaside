@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'dart:async';
 
 class ResumableFuture<T> implements Future<T> {
@@ -13,11 +15,23 @@ class ResumableFuture<T> implements Future<T> {
 
   @override
   Future<T> catchError(Function onError, {bool Function(Object error)? test}) =>
-      throw _unsupportedOperation;
+      then<T>(
+        (value) => value,
+        onError: (error, stackTrace) =>
+            test == null || test(error) ? onError(error, stackTrace) : null,
+      );
 
   @override
-  Future<T> whenComplete(FutureOr<void> Function() action) =>
-      throw _unsupportedOperation;
+  Future<T> whenComplete(FutureOr<void> Function() action) => then<T>(
+        (value) {
+          action();
+          return value;
+        },
+        onError: (error) {
+          action();
+          return null;
+        },
+      );
 
   @override
   Future<T> timeout(Duration timeLimit, {FutureOr<T> Function()? onTimeout}) =>
@@ -29,7 +43,7 @@ class ResumableFuture<T> implements Future<T> {
   void _onValue(FutureOr<T>? value) {
     if (value is Future<T>) {
       value.then(_onValue, onError: _onError);
-    } else if (value != null) {
+    } else {
       for (final listener in listeners) {
         final callback = listener.callback;
         if (callback != null) {
@@ -44,10 +58,12 @@ class ResumableFuture<T> implements Future<T> {
       final callback = listener.errorCallback;
       if (callback != null) {
         final result = callback(error, stackTrace);
-        if (result != null) {
-          listener.result._onValue(result);
-        } else {
+        if (result is Future<T>) {
+          result.then(_onValue, onError: _onError);
+        } else if (result == null) {
           listener.result._onError(error, stackTrace);
+        } else {
+          listener.result._onValue(result);
         }
       }
     }
