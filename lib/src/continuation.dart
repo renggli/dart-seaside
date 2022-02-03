@@ -14,16 +14,16 @@ typedef ValueCallback = void Function(String value);
 
 /// Part of the flow of pages within a session.
 class Continuation {
-  final String sessionKey;
-  final String continuationKey;
-  final Map<HasState, dynamic> snapshots = Map.identity();
-  final Map<String, ValueCallback> callbacks = {};
-
   Continuation(this.sessionKey, this.continuationKey, Component component) {
     component.withAllChildren
         .expand((child) => child.states)
         .forEach((state) => snapshots[state] = state.snapshot());
   }
+
+  final String sessionKey;
+  final String continuationKey;
+  final Map<HasState, dynamic> snapshots = Map.identity();
+  final Map<String, ValueCallback> callbacks = {};
 
   /// Restores the state and executes the callbacks of the request.
   Future<void> call(Request request) async {

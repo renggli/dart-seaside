@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:seaside/seaside.dart';
 import 'package:shelf/shelf_io.dart';
 
@@ -23,5 +25,5 @@ Future<void> main(List<String> args) async {
       }),
       'localhost',
       8080);
-  print('Serving at http://${server.address.host}:${server.port}');
+  stdout.writeln('Serving at http://${server.address.host}:${server.port}');
 }

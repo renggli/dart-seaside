@@ -2,9 +2,9 @@ import 'package:collection/collection.dart';
 
 /// A map that limits its items to a specific number of keys.
 class LimitingMap<K, V> extends DelegatingMap<K, V> {
-  final int _limit;
-
   LimitingMap(Map<K, V> delegate, this._limit) : super(delegate);
+
+  final int _limit;
 
   @override
   void operator []=(K key, V value) {

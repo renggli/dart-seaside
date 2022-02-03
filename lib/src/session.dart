@@ -7,11 +7,11 @@ import 'limiting_map.dart';
 
 /// User session persistent as long as the user is interacting with it.
 class Session {
+  Session(this.sessionKey, this.component);
+
   final String sessionKey;
   final Map<String, Continuation> _continuations = LimitingMap({}, 25);
   final Component component;
-
-  Session(this.sessionKey, this.component);
 
   /// Handles the creation and resolution of continuations, including the
   /// rendering of the response using the root component.

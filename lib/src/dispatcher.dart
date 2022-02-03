@@ -4,9 +4,9 @@ import 'package:shelf/shelf.dart';
 
 /// Dispatches between different handlers based on path name.
 class Dispatcher {
-  final Map<String, Handler> handlers;
-
   Dispatcher(this.handlers);
+
+  final Map<String, Handler> handlers;
 
   /// Handles the creation and dispatching to sessions.
   FutureOr<Response> call(Request request) {

@@ -10,10 +10,10 @@ typedef ComponentFactory = Component Function(Request initialRequest);
 
 /// The starting point of a Seaside application.
 class Application {
+  Application(this._componentFactory);
+
   final Map<String, Session> _sessions = LimitingMap({}, 50);
   final ComponentFactory _componentFactory;
-
-  Application(this._componentFactory);
 
   /// Handles the creation and dispatching to sessions.
   Future<Response> call(Request request) {
