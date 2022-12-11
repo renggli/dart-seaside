@@ -11,6 +11,7 @@ import 'value_holder.dart';
 typedef AnswerHandler<T> = void Function(T value);
 
 /// A component with an answer handler.
+@optionalTypeArgs
 mixin CanAnswer<T> implements Component {
   /// Currently registered answer handler.
   AnswerHandler<T>? onAnswer;
