@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:shelf/shelf.dart';
 
 import 'component.dart';
@@ -6,7 +8,7 @@ import 'limiting_map.dart';
 import 'session.dart';
 
 /// Constructs the root component from the initial request.
-typedef ComponentFactory = Component Function(Request initialRequest);
+typedef ComponentFactory = FutureOr<Component> Function(Request initialRequest);
 
 /// The starting point of a Seaside application.
 class Application {
@@ -16,11 +18,11 @@ class Application {
   final ComponentFactory _componentFactory;
 
   /// Handles the creation and dispatching to sessions.
-  Future<Response> call(Request request) {
+  Future<Response> call(Request request) async {
     var sessionKey = request.requestedUri.queryParameters[sessionParam];
     if (!_sessions.containsKey(sessionKey)) {
       _sessions[sessionKey = createSessionKey()] =
-          Session(sessionKey, _componentFactory(request));
+          Session(sessionKey, await _componentFactory(request));
     }
     return _sessions[sessionKey]!(request);
   }
