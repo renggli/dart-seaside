@@ -1,3 +1,5 @@
+// ignore_for_file: implicit_call_tearoffs
+
 import 'dart:io';
 
 import 'package:seaside/seaside.dart';
