@@ -1,12 +1,16 @@
 import 'dart:math';
 
 final _generator = Random.secure();
-const _keySpace = 'abcdefghijklmnopqrstuvwxyz'
+const _keySpace =
+    'abcdefghijklmnopqrstuvwxyz'
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     '0123456789_-';
 
-String _createKey(int length) => List.generate(
-    length, (index) => _keySpace[_generator.nextInt(_keySpace.length)]).join();
+String _createKey(int length) =>
+    List.generate(
+      length,
+      (index) => _keySpace[_generator.nextInt(_keySpace.length)],
+    ).join();
 
 // Session
 

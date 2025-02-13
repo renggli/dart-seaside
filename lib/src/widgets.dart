@@ -70,11 +70,12 @@ class InputDialog extends Component with CanAnswer<String> {
 
 /// Simple dialog that allows picking an item from a list.
 class PickerDialog<T> extends Component with CanAnswer<T> {
-  PickerDialog(
-      {this.title = '',
-      this.message = '',
-      this.selected,
-      this.values = const []});
+  PickerDialog({
+    this.title = '',
+    this.message = '',
+    this.selected,
+    this.values = const [],
+  });
 
   final String title;
   final String message;
@@ -86,12 +87,15 @@ class PickerDialog<T> extends Component with CanAnswer<T> {
     final buffer = StringBuffer();
     buffer.write('<h1>$title</h1><p>$message</p>');
     buffer.write('<form action="${continuation.actionUrl()}" method="post">');
-    final callback =
-        continuation.callbackKey((value) => answer(values[int.parse(value)]));
+    final callback = continuation.callbackKey(
+      (value) => answer(values[int.parse(value)]),
+    );
     for (var i = 0; i < values.length; i++) {
       final value = values[i], id = '$callback-$i';
-      buffer.write('<input type="radio" id="$id" name="$callback" '
-          'value="$value" ${selected == value ? 'checked' : ''}>');
+      buffer.write(
+        '<input type="radio" id="$id" name="$callback" '
+        'value="$value" ${selected == value ? 'checked' : ''}>',
+      );
       buffer.write('<label for="$id">$value</label><br/>');
     }
     buffer.write('<input type="submit" value="Ok">');

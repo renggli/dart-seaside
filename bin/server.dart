@@ -16,16 +16,17 @@ import 'tabbed_counters.dart';
 /// Web-server for the example applications.
 Future<void> main(List<String> args) async {
   final server = await serve(
-      Dispatcher({
-        'calculator-cc': Application((request) => CalculatorCc()),
-        'calculator-cps': Application((request) => CalculatorCps()),
-        'counter': Application((request) => Counter()),
-        'hello-world': Application((request) => HelloWorld()),
-        'multi-counter': Application((request) => MultiCounter()),
-        'number-guessing': Application((request) => NumberGuessing()),
-        'tabbed-counter': Application((request) => TabbedCounter()),
-      }),
-      'localhost',
-      8080);
+    Dispatcher({
+      'calculator-cc': Application((request) => CalculatorCc()),
+      'calculator-cps': Application((request) => CalculatorCps()),
+      'counter': Application((request) => Counter()),
+      'hello-world': Application((request) => HelloWorld()),
+      'multi-counter': Application((request) => MultiCounter()),
+      'number-guessing': Application((request) => NumberGuessing()),
+      'tabbed-counter': Application((request) => TabbedCounter()),
+    }),
+    'localhost',
+    8080,
+  );
   stdout.writeln('Serving at http://${server.address.host}:${server.port}');
 }

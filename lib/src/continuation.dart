@@ -42,11 +42,13 @@ class Continuation {
   }
 
   /// Registers a [callback] and returns the corresponding URL.
-  Uri actionUrl([ActionCallback? callback]) => Uri(queryParameters: {
-        sessionParam: sessionKey,
-        continuationParam: continuationKey,
-        if (callback != null) callbackKey((value) => callback()): '',
-      });
+  Uri actionUrl([ActionCallback? callback]) => Uri(
+    queryParameters: {
+      sessionParam: sessionKey,
+      continuationParam: continuationKey,
+      if (callback != null) callbackKey((value) => callback()): '',
+    },
+  );
 }
 
 /// Creates a combined map of GET and POST request params.

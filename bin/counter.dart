@@ -12,7 +12,8 @@ class Counter extends Component implements HasState<int> {
   Iterable<HasState> get states => [this];
 
   @override
-  String body(Continuation continuation) => '<h1>$counter</h1>'
+  String body(Continuation continuation) =>
+      '<h1>$counter</h1>'
       '<a href="${continuation.actionUrl(decrement)}">--</a> '
       '<a href="${continuation.actionUrl(increment)}">++</a>';
 

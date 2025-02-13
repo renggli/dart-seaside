@@ -5,7 +5,7 @@ homepage: https://github.com/renggli/dart-seaside
 description: A web application server framework.
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
 dependencies:
   collection: ^1.19.0
   meta: ^1.15.0

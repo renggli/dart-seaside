@@ -10,9 +10,10 @@ class Dispatcher {
 
   /// Handles the creation and dispatching to sessions.
   FutureOr<Response> call(Request request) {
-    final segment = request.url.pathSegments.isNotEmpty
-        ? request.url.pathSegments.first
-        : '';
+    final segment =
+        request.url.pathSegments.isNotEmpty
+            ? request.url.pathSegments.first
+            : '';
     return handlers.containsKey(segment)
         ? handlers[segment]!(request.change(path: segment))
         : defaultHandler(request);
@@ -26,7 +27,9 @@ class Dispatcher {
       buffer.write('<li><a href="$key">$key</a></li>');
     }
     buffer.write('</ul></body></html>');
-    return Response.ok(buffer.toString(),
-        headers: {'Content-Type': 'text/html'});
+    return Response.ok(
+      buffer.toString(),
+      headers: {'Content-Type': 'text/html'},
+    );
   }
 }

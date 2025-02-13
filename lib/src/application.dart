@@ -21,8 +21,10 @@ class Application {
   Future<Response> call(Request request) async {
     var sessionKey = request.requestedUri.queryParameters[sessionParam];
     if (!_sessions.containsKey(sessionKey)) {
-      _sessions[sessionKey = createSessionKey()] =
-          Session(sessionKey, await _componentFactory(request));
+      _sessions[sessionKey = createSessionKey()] = Session(
+        sessionKey,
+        await _componentFactory(request),
+      );
     }
     return _sessions[sessionKey]!(request);
   }
