@@ -10,10 +10,9 @@ class Dispatcher {
 
   /// Handles the creation and dispatching to sessions.
   FutureOr<Response> call(Request request) {
-    final segment =
-        request.url.pathSegments.isNotEmpty
-            ? request.url.pathSegments.first
-            : '';
+    final segment = request.url.pathSegments.isNotEmpty
+        ? request.url.pathSegments.first
+        : '';
     return handlers.containsKey(segment)
         ? handlers[segment]!(request.change(path: segment))
         : defaultHandler(request);
