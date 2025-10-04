@@ -29,4 +29,4 @@ jobs:
       - name: "Dart Formatter"
         run: dart format --output=none --set-exit-if-changed .
       - name: "VM Tests"
-        run: dart test --platform vm test/all_test.dart
+        run: dart test --platform vm
