@@ -11,6 +11,21 @@ import 'value_holder.dart';
 typedef AnswerHandler<T> = void Function(T value);
 
 /// A component with an answer handler.
+///
+/// This mixin provides the mechanism for a component to return a value to its
+/// caller (the component that showed it).
+///
+/// Example:
+/// ```dart
+/// class MyDialog extends Component with CanAnswer<bool> {
+///   @override
+///   String body(Continuation continuation) {
+///     // ...
+///     // val url = continuation.actionUrl(() => answer(true));
+///     // ...
+///   }
+/// }
+/// ```
 @optionalTypeArgs
 mixin CanAnswer<T> implements Component {
   /// Currently registered answer handler.
@@ -21,6 +36,25 @@ mixin CanAnswer<T> implements Component {
 }
 
 /// A task defines a sequence of components being shown.
+///
+/// Tasks allow for a linear description of a workflow, where the execution
+/// halts at [call] allowing the user to interact with the called component,
+/// and resumes when that component answers.
+///
+/// Example:
+/// ```dart
+/// class LoginTask extends Task {
+///   @override
+///   void run() async {
+///     var credentials = await call(LoginDialog());
+///     if (isValid(credentials)) {
+///        await call(MainApplication(credentials));
+///     } else {
+///        await call(ErrorDialog('Invalid credentials'));
+///     }
+///   }
+/// }
+/// ```
 abstract class Task extends Component {
   final ValueHolder<CanAnswer?> _delegate = ValueHolder(null);
 

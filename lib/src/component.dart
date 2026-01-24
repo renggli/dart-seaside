@@ -4,6 +4,23 @@ import 'continuation.dart';
 import 'has_state.dart';
 
 /// Abstract superclass of persistent presenters.
+///
+/// Components are the building blocks of a Seaside application. They are
+/// responsible for rendering their content and handling user input.
+///
+/// Example:
+/// ```dart
+/// class Counter extends Component {
+///   int _count = 0;
+///
+///   @override
+///   String body(Continuation continuation) {
+///     final increment = continuation.callbackKey((_) => _count++);
+///     return '<p>Count: $_count</p>'
+///            '<a href="${continuation.actionUrl()}&$increment=1">++</a>';
+///   }
+/// }
+/// ```
 abstract class Component {
   /// Iterable of direct child components.
   Iterable<Component> get children => [];

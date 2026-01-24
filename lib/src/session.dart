@@ -5,7 +5,11 @@ import 'continuation.dart';
 import 'keys.dart';
 import 'limiting_map.dart';
 
-/// User session persistent as long as the user is interacting with it.
+/// A user session that persists as long as the user is interacting with it.
+///
+/// The [Session] holds the root component and manages the continuations
+/// (snapshots) of the application state. It is created by the application
+/// when a new user arrives.
 class Session {
   Session(this.sessionKey, this.component);
 

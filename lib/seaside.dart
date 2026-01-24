@@ -1,3 +1,6 @@
+/// A web framework for building interactive web applications in Dart.
+library;
+
 export 'src/application.dart';
 export 'src/call_answer.dart';
 export 'src/component.dart';

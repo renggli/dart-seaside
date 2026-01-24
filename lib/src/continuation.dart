@@ -13,6 +13,10 @@ typedef ActionCallback = void Function();
 typedef ValueCallback = void Function(String value);
 
 /// Part of the flow of pages within a session.
+///
+/// A [Continuation] represents a snapshot of the application state at a specific
+/// point in time. It is used to restore state and handle callbacks when the
+/// user interacts with the application.
 class Continuation {
   Continuation(this.sessionKey, this.continuationKey, Component component) {
     component.withAllChildren

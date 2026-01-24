@@ -3,6 +3,14 @@ import 'component.dart';
 import 'continuation.dart';
 
 /// Simple dialog that shows a title and contents.
+///
+/// Example:
+/// ```dart
+/// await call(Dialog(
+///   title: 'Hello',
+///   message: 'Welcome to Seaside!',
+/// ));
+/// ```
 class Dialog extends Component with CanAnswer<Never> {
   Dialog({this.title = '', this.message = ''});
 
@@ -13,7 +21,15 @@ class Dialog extends Component with CanAnswer<Never> {
   String body(Continuation continuation) => '<h1>$title</h1><p>$message</p>';
 }
 
-// Simple dialog with an ok button.
+/// Simple dialog with an ok button.
+///
+/// Example:
+/// ```dart
+/// await call(AlertDialog(
+///   title: 'Error',
+///   message: 'Something went wrong.',
+/// ));
+/// ```
 class AlertDialog extends Component with CanAnswer<void> {
   AlertDialog({this.title = '', this.message = ''});
 
@@ -30,7 +46,14 @@ class AlertDialog extends Component with CanAnswer<void> {
   }
 }
 
-// Simple dialog with yes and no button.
+/// Simple dialog with yes and no button.
+///
+/// Example:
+/// ```dart
+/// if (await call(ConfirmationDialog(message: 'Are you sure?'))) {
+///   // ...
+/// }
+/// ```
 class ConfirmationDialog extends Component with CanAnswer<bool> {
   ConfirmationDialog({this.title = '', this.message = ''});
 
@@ -49,7 +72,15 @@ class ConfirmationDialog extends Component with CanAnswer<bool> {
   }
 }
 
-// Simple dialog that allows entering a string.
+/// Simple dialog that allows entering a string.
+///
+/// Example:
+/// ```dart
+/// var name = await call(InputDialog(
+///   title: 'Name',
+///   message: 'Enter your name:',
+/// ));
+/// ```
 class InputDialog extends Component with CanAnswer<String> {
   InputDialog({this.title = '', this.message = '', this.value = ''});
 
@@ -69,6 +100,16 @@ class InputDialog extends Component with CanAnswer<String> {
 }
 
 /// Simple dialog that allows picking an item from a list.
+///
+/// Example:
+/// ```dart
+/// var color = await call(PickerDialog(
+///   title: 'Color',
+///   message: 'Pick a color:',
+///   values: ['Red', 'Green', 'Blue'],
+///   selected: 'Green',
+/// ));
+/// ```
 class PickerDialog<T> extends Component with CanAnswer<T> {
   PickerDialog({
     this.title = '',

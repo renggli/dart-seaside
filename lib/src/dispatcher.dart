@@ -3,6 +3,17 @@ import 'dart:async';
 import 'package:shelf/shelf.dart';
 
 /// Dispatches between different handlers based on path name.
+///
+/// This class is used to route requests to different handlers based on the first
+/// segment of the request URL path.
+///
+/// Example:
+/// ```dart
+/// var dispatcher = Dispatcher({
+///   'app': (request) => Application(MyComponent()),
+///   'api': (request) => ApiHandler(),
+/// });
+/// ```
 class Dispatcher {
   Dispatcher(this.handlers);
 

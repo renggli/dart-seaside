@@ -11,6 +11,20 @@ import 'session.dart';
 typedef ComponentFactory = FutureOr<Component> Function(Request initialRequest);
 
 /// The starting point of a Seaside application.
+///
+/// The [Application] class manages the root component of the application and
+/// handles incoming requests by dispatching them to the appropriate session.
+///
+/// Example:
+/// ```dart
+/// import 'package:shelf/shelf_io.dart' as shelf_io;
+///
+/// void main() async {
+///   var application = Application((request) => MyRootComponent());
+///   var server = await shelf_io.serve(application.call, 'localhost', 8080);
+///   print('Serving at http://${server.address.host}:${server.port}');
+/// }
+/// ```
 class Application {
   Application(this._componentFactory);
 
