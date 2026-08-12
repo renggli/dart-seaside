@@ -18,7 +18,7 @@ typedef ValueCallback = void Function(String value);
 /// point in time. It is used to restore state and handle callbacks when the
 /// user interacts with the application.
 class Continuation {
-  Continuation(this.sessionKey, this.continuationKey, Component component) {
+  new(this.sessionKey, this.continuationKey, Component component) {
     component.withAllChildren
         .expand((child) => child.states)
         .forEach((state) => snapshots[state] = state.snapshot());

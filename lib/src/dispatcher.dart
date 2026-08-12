@@ -15,7 +15,7 @@ import 'package:shelf/shelf.dart';
 /// });
 /// ```
 class Dispatcher {
-  Dispatcher(this.handlers);
+  new(this.handlers);
 
   final Map<String, Handler> handlers;
 

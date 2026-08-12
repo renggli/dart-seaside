@@ -12,7 +12,7 @@ import 'continuation.dart';
 /// ));
 /// ```
 class Dialog extends Component with CanAnswer<Never> {
-  Dialog({this.title = '', this.message = ''});
+  new({this.title = '', this.message = ''});
 
   final String title;
   final String message;
@@ -31,7 +31,7 @@ class Dialog extends Component with CanAnswer<Never> {
 /// ));
 /// ```
 class AlertDialog extends Component with CanAnswer<void> {
-  AlertDialog({this.title = '', this.message = ''});
+  new({this.title = '', this.message = ''});
 
   final String title;
   final String message;
@@ -55,7 +55,7 @@ class AlertDialog extends Component with CanAnswer<void> {
 /// }
 /// ```
 class ConfirmationDialog extends Component with CanAnswer<bool> {
-  ConfirmationDialog({this.title = '', this.message = ''});
+  new({this.title = '', this.message = ''});
 
   final String title;
   final String message;
@@ -82,7 +82,7 @@ class ConfirmationDialog extends Component with CanAnswer<bool> {
 /// ));
 /// ```
 class InputDialog extends Component with CanAnswer<String> {
-  InputDialog({this.title = '', this.message = '', this.value = ''});
+  new({this.title = '', this.message = '', this.value = ''});
 
   final String title;
   final String message;
@@ -111,7 +111,7 @@ class InputDialog extends Component with CanAnswer<String> {
 /// ));
 /// ```
 class PickerDialog<T> extends Component with CanAnswer<T> {
-  PickerDialog({
+  new({
     this.title = '',
     this.message = '',
     this.selected,

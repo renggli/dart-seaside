@@ -26,7 +26,7 @@ typedef ComponentFactory = FutureOr<Component> Function(Request initialRequest);
 /// }
 /// ```
 class Application {
-  Application(this._componentFactory);
+  new(this._componentFactory);
 
   final Map<String, Session> _sessions = LimitingMap({}, 50);
   final ComponentFactory _componentFactory;

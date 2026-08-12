@@ -11,7 +11,7 @@ import 'limiting_map.dart';
 /// (snapshots) of the application state. It is created by the application
 /// when a new user arrives.
 class Session {
-  Session(this.sessionKey, this.component);
+  new(this.sessionKey, this.component);
 
   final String sessionKey;
   final Map<String, Continuation> _continuations = LimitingMap({}, 25);
